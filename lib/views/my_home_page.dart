@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_storage_operations/views/shared_preferences_kullanimi.dart';
+import 'package:flutter_storage_operations/widgets/sayfa_gecis_buton.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -16,7 +18,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          children: const [],
+          children: [
+            SayfaGecisBtn(
+              butonName: "Shared Preferences",
+              page: const SharedPreferencesKullanimi(),
+            ),
+          ],
         ),
       ),
     );
