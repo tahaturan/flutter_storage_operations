@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_storage_operations/views/sayac_uygulamasi.dart';
 import 'package:flutter_storage_operations/views/shared_preferences_kullanimi.dart';
 import 'package:flutter_storage_operations/widgets/sayfa_gecis_buton.dart';
 
@@ -23,6 +24,9 @@ class _MyHomePageState extends State<MyHomePage> {
               butonName: "Shared Preferences",
               page: const SharedPreferencesKullanimi(),
             ),
+            SayfaGecisBtn(
+                butonName: "SP Sayac Uygulamasi",
+                page: const SayacUygulamasi()),
           ],
         ),
       ),
