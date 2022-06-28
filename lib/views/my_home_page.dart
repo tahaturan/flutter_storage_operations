@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_storage_operations/views/sayac_uygulamasi.dart';
 import 'package:flutter_storage_operations/views/shared_preferences_kullanimi.dart';
+import 'package:flutter_storage_operations/views/sqlite_kullanimi.dart';
 import 'package:flutter_storage_operations/widgets/sayfa_gecis_buton.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -27,6 +28,8 @@ class _MyHomePageState extends State<MyHomePage> {
             SayfaGecisBtn(
                 butonName: "SP Sayac Uygulamasi",
                 page: const SayacUygulamasi()),
+            SayfaGecisBtn(
+                butonName: "Sqlite Kullanimi", page: const SqliteKullanimi()),
           ],
         ),
       ),
