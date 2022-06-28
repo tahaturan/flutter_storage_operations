@@ -4,6 +4,5 @@ class Kisiler {
   int kisi_id;
   String kisi_ad;
   int kisi_yas;
-  Kisiler(
-      {required this.kisi_id, required this.kisi_ad, required this.kisi_yas});
+  Kisiler(this.kisi_id, this.kisi_ad, this.kisi_yas);
 }
