@@ -31,13 +31,18 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     await KisilerDao().kisiSil(29);
   }
 
+  Future<void> veriGuncelle() async {
+    await KisilerDao().kisiGuncelle(33, "Yeni Isim", 20);
+  }
+
   @override
   void initState() {
     //*uygulama ilk acildiginizda calismasini istedigimiz seyleri initStade icine yazariz
     //todo: bizde acilir acilmaz kisileriGoster() metodumuzun calismasini istedik
     super.initState();
     //veriEkle();
-    veriSil();
+    //veriSil();
+    veriGuncelle();
     kisileriGoster();
   }
 

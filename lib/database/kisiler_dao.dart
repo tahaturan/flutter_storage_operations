@@ -38,4 +38,15 @@ class KisilerDao {
 
     await db.delete("kisiler", where: "kisi_id = ?", whereArgs: [kisiId]);
   }
+
+  Future<void> kisiGuncelle(int kisiId, String kisiAd, int kisiYas) async {
+    var db = await VeritabaniYardimcisi.veriTabaniErisim();
+
+    var bilgiler = <String, dynamic>{};
+    bilgiler["kisi_ad"] = kisiAd;
+    bilgiler["kisi_yas"] = kisiYas;
+
+    await db
+        .update("kisiler", bilgiler, where: "kisi_id = ?", whereArgs: [kisiId]);
+  }
 }
