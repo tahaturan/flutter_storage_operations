@@ -11,17 +11,22 @@ class SqliteKullanimi extends StatefulWidget {
 
 class _SqliteKullanimiState extends State<SqliteKullanimi> {
   Future<void> kisileriGoster() async {
-    var liste = await KisilerDao().tumKisiler();
-    for (Kisiler k in liste) {
-      print("Kisi id: ${k.kisi_id}");
-      print("Kisi ad: ${k.kisi_ad}");
-      print("Kisi yas: ${k.kisi_yas}");
-      print("-----------------");
+    List<Kisiler> liste = await KisilerDao().tumKisiler();
+    //*ilk olarak tum kisilerimize eristik ve bize bir icinde kisiler nesneleri olan liste gelecegini biliyoruz
+    //* artik veritabanimizda kac tane nesne varsa liste icine gelmis oldu bizde bunu basit bir for dongusu ile konsola yazdirabiliriz
+
+    for (Kisiler kisi in liste) {
+      print("**************");
+      print("kisi id: ${kisi.kisi_id}");
+      print("kisi adi: ${kisi.kisi_ad}");
+      print("kisi yas: ${kisi.kisi_yas}");
     }
   }
 
   @override
   void initState() {
+    //*uygulama ilk acildiginizda calismasini istedigimiz seyleri initStade icine yazariz
+    //todo: bizde acilir acilmaz kisileriGoster() metodumuzun calismasini istedik
     super.initState();
     kisileriGoster();
   }
