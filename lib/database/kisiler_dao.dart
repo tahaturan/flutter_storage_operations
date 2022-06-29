@@ -32,4 +32,10 @@ class KisilerDao {
 
     await db.insert("kisiler", bilgiler);
   }
+
+  Future<void> kisiSil(int kisiId) async {
+    var db = await VeritabaniYardimcisi.veriTabaniErisim();
+
+    await db.delete("kisiler", where: "kisi_id = ?", whereArgs: [kisiId]);
+  }
 }
