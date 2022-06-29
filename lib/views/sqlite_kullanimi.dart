@@ -23,11 +23,16 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     }
   }
 
+  Future<void> veriEkle() async {
+    await KisilerDao().kisiEkle("Zehra", 18);
+  }
+
   @override
   void initState() {
     //*uygulama ilk acildiginizda calismasini istedigimiz seyleri initStade icine yazariz
     //todo: bizde acilir acilmaz kisileriGoster() metodumuzun calismasini istedik
     super.initState();
+    veriEkle();
     kisileriGoster();
   }
 

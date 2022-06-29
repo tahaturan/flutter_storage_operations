@@ -23,4 +23,13 @@ class KisilerDao {
       return Kisiler(satir["kisi_id"], satir["kisi_ad"], satir["kisi_yas"]);
     });
   }
+
+  Future<void> kisiEkle(String kisiAdi, int kisiYas) async {
+    var db = await VeritabaniYardimcisi.veriTabaniErisim();
+    var bilgiler = Map<String, dynamic>();
+    bilgiler["kisi_ad"] = kisiAdi;
+    bilgiler["kisi_yas"] = kisiYas;
+
+    await db.insert("kisiler", bilgiler);
+  }
 }
