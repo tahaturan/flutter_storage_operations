@@ -49,4 +49,11 @@ class KisilerDao {
     await db
         .update("kisiler", bilgiler, where: "kisi_id = ?", whereArgs: [kisiId]);
   }
+
+  Future<int> kayitKontrol(String kisiAd) async {
+    var db = await VeritabaniYardimcisi.veriTabaniErisim();
+    List<Map<String, dynamic>> maps = await db.rawQuery(
+        "SELECT count(*) AS sonuc FROM kisiler WHERE kisi_ad = '$kisiAd'");
+    return maps[0]["sonuc"];
+  }
 }

@@ -35,6 +35,11 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     await KisilerDao().kisiGuncelle(33, "Yeni Isim", 20);
   }
 
+  Future<void> kayitKontrol() async {
+    int sonuc = await KisilerDao().kayitKontrol("Taha");
+    print("Veritabaninda taha ismi $sonuc adet gecmektedir");
+  }
+
   @override
   void initState() {
     //*uygulama ilk acildiginizda calismasini istedigimiz seyleri initStade icine yazariz
@@ -42,7 +47,8 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     super.initState();
     //veriEkle();
     //veriSil();
-    veriGuncelle();
+    //veriGuncelle();
+    kayitKontrol();
     kisileriGoster();
   }
 
