@@ -40,6 +40,14 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     print("Veritabaninda taha ismi $sonuc adet gecmektedir");
   }
 
+  Future<void> kisigetir() async {
+    var kisi = await KisilerDao().kisiGetir(31);
+
+    print("Id: ${kisi.kisi_id}");
+    print("Ad: ${kisi.kisi_ad}");
+    print("Yas: ${kisi.kisi_yas}");
+  }
+
   @override
   void initState() {
     //*uygulama ilk acildiginizda calismasini istedigimiz seyleri initStade icine yazariz
@@ -48,8 +56,9 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     //veriEkle();
     //veriSil();
     //veriGuncelle();
-    kayitKontrol();
-    kisileriGoster();
+    //kayitKontrol();
+    //kisileriGoster();
+    kisigetir();
   }
 
   @override

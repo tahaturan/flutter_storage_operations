@@ -56,4 +56,14 @@ class KisilerDao {
         "SELECT count(*) AS sonuc FROM kisiler WHERE kisi_ad = '$kisiAd'");
     return maps[0]["sonuc"];
   }
+
+  Future<Kisiler> kisiGetir(int kisiId) async {
+    var db = await VeritabaniYardimcisi.veriTabaniErisim();
+
+    List<Map<String, dynamic>> maps =
+        await db.rawQuery("SELECT * FROM kisiler WHERE kisi_id ='$kisiId'");
+    var satir = maps[0];
+
+    return Kisiler(satir["kisi_id"], satir["kisi_ad"], satir["kisi_yas"]);
+  }
 }
