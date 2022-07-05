@@ -78,4 +78,15 @@ class KisilerDao {
       return Kisiler(satir["kisi_id"], satir["kisi_ad"], satir["kisi_yas"]);
     });
   }
+
+  Future<List<Kisiler>> rastgeleneIkiKisiGetir() async {
+    var db = await VeritabaniYardimcisi.veriTabaniErisim();
+
+    List<Map<String, dynamic>> maps =
+        await db.rawQuery("SELECT * FROM kisiler ORDER BY RANDOM() LIMIT 2");
+    return List.generate(maps.length, (index) {
+      var satir = maps[index];
+      return Kisiler(satir["kisi_id"], satir["kisi_ad"], satir["kisi_yas"]);
+    });
+  }
 }

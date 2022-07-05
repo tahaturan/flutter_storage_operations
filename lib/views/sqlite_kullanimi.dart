@@ -58,6 +58,16 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     }
   }
 
+  Future<void> rastgeleIkiKisiGetir() async {
+    var liste = await KisilerDao().rastgeleneIkiKisiGetir();
+
+    for (var element in liste) {
+      print("Id: ${element.kisi_id}");
+      print("Adi: ${element.kisi_ad}");
+      print("Yasi: ${element.kisi_yas}");
+    }
+  }
+
   @override
   void initState() {
     //*uygulama ilk acildiginizda calismasini istedigimiz seyleri initStade icine yazariz
@@ -69,7 +79,8 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     //kayitKontrol();
     //kisileriGoster();
     //kisigetir();
-    aramaYap();
+    //aramaYap();
+    rastgeleIkiKisiGetir();
   }
 
   @override
