@@ -66,4 +66,16 @@ class KisilerDao {
 
     return Kisiler(satir["kisi_id"], satir["kisi_ad"], satir["kisi_yas"]);
   }
+
+  Future<List<Kisiler>> kisiArama(String aramaKelimesi) async {
+    var db = await VeritabaniYardimcisi.veriTabaniErisim();
+
+    List<Map<String, dynamic>> maps = await db.rawQuery(
+        "SELECT * FROM kisiler WHERE kisi_ad like '%$aramaKelimesi%'");
+    return List.generate(maps.length, (index) {
+      var satir = maps[index];
+
+      return Kisiler(satir["kisi_id"], satir["kisi_ad"], satir["kisi_yas"]);
+    });
+  }
 }

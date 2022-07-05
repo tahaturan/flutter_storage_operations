@@ -48,6 +48,16 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     print("Yas: ${kisi.kisi_yas}");
   }
 
+  Future<void> aramaYap() async {
+    List<Kisiler> liste = await KisilerDao().kisiArama("a");
+
+    for (var i in liste) {
+      print("Id: ${i.kisi_id}");
+      print("Ad: ${i.kisi_ad}");
+      print("Yas: ${i.kisi_yas}");
+    }
+  }
+
   @override
   void initState() {
     //*uygulama ilk acildiginizda calismasini istedigimiz seyleri initStade icine yazariz
@@ -58,7 +68,8 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     //veriGuncelle();
     //kayitKontrol();
     //kisileriGoster();
-    kisigetir();
+    //kisigetir();
+    aramaYap();
   }
 
   @override
