@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_storage_operations/database/fimler_dao.dart';
 import 'package:flutter_storage_operations/database/kisiler_dao.dart';
+import 'package:flutter_storage_operations/database/veritabani_yardimcisi_filmler.dart';
 import 'package:flutter_storage_operations/model/kisiler.dart';
 
 class SqliteKullanimi extends StatefulWidget {
@@ -68,6 +70,20 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     }
   }
 
+  Future<void> filmleriGoster() async {
+    var liste = await FilmlerDao().tumFilmler();
+
+    for (var film in liste) {
+      print("*************************");
+      print("Film Id: ${film.filmId}");
+      print("Film Adi: ${film.filmAdi}");
+      print("Film Yili: ${film.filmYili}");
+      print("Film Resim: ${film.filmResim}");
+      print("Film Kategori: ${film.kategori.kategoriAd}");
+      print("Film Yonetmeni: ${film.yonetmen.yonetmenAdi}");
+    }
+  }
+
   @override
   void initState() {
     //*uygulama ilk acildiginizda calismasini istedigimiz seyleri initStade icine yazariz
@@ -80,7 +96,8 @@ class _SqliteKullanimiState extends State<SqliteKullanimi> {
     //kisileriGoster();
     //kisigetir();
     //aramaYap();
-    rastgeleIkiKisiGetir();
+    //rastgeleIkiKisiGetir();
+    filmleriGoster();
   }
 
   @override
